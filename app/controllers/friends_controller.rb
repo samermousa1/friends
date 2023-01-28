@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   before_action :set_friend, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :update]
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index, :search]
   # GET /friends or /friends.json
   def index
     
@@ -64,7 +64,11 @@ class FriendsController < ApplicationController
   end
 
   
-
+  def search
+    @friends = current_user.friends.where(first_name: keyword)
+    #@friends = Friend.where(first_name: keyword, user_id: current_user.id) another way.
+    render "index"
+  end
 
   def correct_user
     @friend = current_user.friends.find_by(id: params[:id])
@@ -80,5 +84,9 @@ class FriendsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def friend_params
       params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter,:user_id)
+    end
+
+    def keyword
+      params[:keyword].strip
     end
 end
