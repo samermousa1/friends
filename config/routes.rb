@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
   get "search" => "friends#search"
-  
+  resources :invites, only: [:create]
   
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

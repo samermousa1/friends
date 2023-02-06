@@ -1,2 +1,23 @@
-<h1>Home site</h1>
-This is my first Rails Webpage
+<h1>All Users</h1>
+
+<table class="table" >
+  <thead class="thead-dark">
+    <tr>
+      <th>Email</th>
+      <th>Invite Status</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+  <% @users.each do |user| %>
+  <tr> 
+    <td><%= user.email %></td>
+    <td><%= "Pending" %></td>
+    <td><%= button_to " send invite ", invites_path , method: :post, params: { invitee_id: user.id }, class:"nav-link" %></td>
+    </tr> 
+
+    
+    <%end%>
+ 
+  </tbody>
+</table> 

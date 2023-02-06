@@ -65,8 +65,9 @@ class FriendsController < ApplicationController
 
   
   def search
+    
     @friends = current_user.friends.where(first_name: keyword)
-    #@friends = Friend.where(first_name: keyword, user_id: current_user.id) another way.
+    #@friends = Friend.where(first_name: keyword, user_id: current_user.id) another way could be used.
     render "index"
   end
 
