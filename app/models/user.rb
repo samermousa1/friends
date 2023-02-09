@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :friends   
   has_many :invites, class_name: "Invite", foreign_key: "inviter_id"
+  has_many :notifications, class_name: "Invite", foreign_key: "invitee_id"
 end
+

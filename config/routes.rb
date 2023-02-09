@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'home/about'
   get "search" => "friends#search"
   resources :invites, only: [:create]
+  resources :notifications, only: [:index]
   
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

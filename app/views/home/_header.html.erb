@@ -27,6 +27,9 @@
         <%= link_to " Add a Friend ", new_friend_path, class:"nav-link" %>
         </li>
         <li>
+        <%= link_to " Notifications ", notifications_path, class:"nav-link" %>
+        </li>
+        <li>
         <%= link_to "Friends List ", friends_path, class:"nav-link" %>
         </li>
       <%= form_with url: "/search", html: {class: "d-flex" }, method: :get do |form| %>

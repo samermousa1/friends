@@ -1,0 +1,22 @@
+<h1>All Notification</h1>
+
+<table class="table" >
+  <thead class="thead-dark">
+    <tr>
+      <th>Email</th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+   
+  <% @notifications.each do |noti| %>
+  <tr> 
+    <td><%= noti.user.email %></td>
+    <td> dddddddd</td>
+    </tr> 
+
+    
+    <%end%>
+ 
+  </tbody>
+</table> 
