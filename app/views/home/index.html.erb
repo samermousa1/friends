@@ -13,7 +13,9 @@
   <tr> 
     <td><%= user.email %></td>
     <td><%= "Pending" %></td>
+    <% unless current_user.invites.where(invitee_id: user.id).exists? %>
     <td><%= button_to " send invite ", invites_path , method: :post, params: { invitee_id: user.id }, class:"nav-link" %></td>
+    <% end%>    
     </tr> 
 
     
